@@ -16,7 +16,7 @@ public class Vertex {
 	
 	public Vertex(String ID, boolean startFlag, boolean endFlag, ArrayList<Edge> Edges)
 	{
-		edges = new ArrayList<Edge>();
+		this.edges = new ArrayList<Edge>();
 		
 		SetID(ID);
 		SetStartFlag(startFlag);

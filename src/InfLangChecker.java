@@ -1,15 +1,11 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
+
+import sun.font.TrueTypeFont;
 
 
 public class InfLangChecker {
 	
-	private String langDescriptionFileName = "";
-	private ArrayList<Vertex> graph = null;
-	private final String START = "S";
-	private final String END = "F";
+	private DirectedGraph graph = null;
 	
 	
 	public InfLangChecker()
@@ -19,137 +15,62 @@ public class InfLangChecker {
 	
 	public InfLangChecker(String fileName)
 	{
-		graph = new ArrayList<Vertex>();
-		
-		SetLangDescriptionFileName(fileName);
-		
-		BuildGraph(fileName);
-		
-		//this.Display();
+		this.graph = new DirectedGraph(fileName);	
 	}
 	
 	
-	public boolean CheckInfinite()
+	public boolean IsFinite()
 	{
-		return true;
+		boolean isFinite = true;
+		
+		ArrayList<String> possibleWordStrings = GeneratePossibleWords();
+		
+		//TODO - determine finite or infinite
+		//CheckWordToGraph( someWord );
+		
+		String testWord = "ab"; //word for testing specific strings for a graph
+		
+		CheckWord( testWord );
+		
+		return isFinite;
 	}
 	
-	public boolean BuildGraph(String fileName)
+	private ArrayList<String> GeneratePossibleWords()
 	{
-		BufferedReader br = null;
-		boolean builtTree = false;
+		ArrayList<String> possibleWords = null;
+		int lowerSizeLimit = this.graph.GetLowerInputSizeRequirment();
+		int upperSizeLimit = lowerSizeLimit * 2;
 		
-		try {
-			String lineBuff;
- 
-			br = new BufferedReader(new FileReader(fileName));
- 
-			while ((lineBuff = br.readLine()) != null) {
-				System.out.println(lineBuff);
-				
-				this.AddDescriptionToGraph(lineBuff);
-				
-				this.Display();
-			}
-			
-			builtTree = true;
-			
-		} catch (IOException e)  {
-			System.out.println("ERROR: An issue occured while trying to OPEN the file: "+fileName);
-			e.printStackTrace();
-		} finally {
-			try {
-				if (br != null) br.close();
-			} catch (IOException ex) {
-				System.out.println("ERROR: An issue occured while trying to CLOSE the file: "+fileName);
-				ex.printStackTrace();
-			}
-		}
+		CreateWord(possibleWords, lowerSizeLimit, upperSizeLimit);
 		
-		return builtTree;
+		return possibleWords;
 	}
 	
-	private void AddDescriptionToGraph(String description)
+	private void CreateWord(ArrayList<String> possibleWords, int lowerSizeLimit, int upperSizeLimit)
 	{
-		//vertex info needed to create graph
-		Vertex vertex = null;
-		String vertexId = "";
-		boolean startFlag = false;
-		boolean endFlag = false;
-
-		//edge info needed for vertex
-		ArrayList<Edge> edges = new ArrayList<Edge>();
-		Edge edge = null;
-		String source = "";
-		String dest = "";
-		String cost = "";
-		
-		//parse the "-" delimiterized text file and create the graph from the vertex and edge info
-		String[] tokens = description.split("-");
-		int index = 0;
-		
-		for (String part : tokens) {
-		  System.out.println("Parsing token: "+part);
-		  
-		  switch (index) {
-		  	case 0: //Edge number: 0, 1, 2,...
-		  		vertexId = part;
-		  		break;
-		  	case 1: //Initial and terminal vertices
-		  		startFlag = (part.toLowerCase()).contains(START.toLowerCase());
-		  		endFlag = (part.toLowerCase()).contains(END.toLowerCase());
-		  		break;
-		  	default: //zero or many edges
-		  		source = vertexId;
-		  		dest = part.substring(0, 1);
-		  		cost = part.substring(1, 2);
-		  		
-		  		edge = new Edge(source, dest, cost);
-		  		edges.add( edge );
-		  		
-		  		break;
-		  }
-		  
-		  index++; //counter for input parsed
-		}
-		
-		//add collected information to the graph
-		vertex = new Vertex(vertexId, startFlag, endFlag, edges);
-		
-		AddVertexToGraph(vertex);
+		//TODO - recursivly create all words with length between lower and upper limit with the letters a,b 
 	}
 	
-	private void AddVertexToGraph(Vertex v)
+	public boolean CheckWord(String word)
 	{
-		this.graph.add(v);
+		boolean valid = false;
+		
+		//TODO - check if this 'word' gets to an end state in our Directed Graph (FA)
+		
+		return valid;
 	}
 	
-	public String GetLangDescriptionFileName()
-	{
-		return this.langDescriptionFileName;
-	}
-	
-	private void SetLangDescriptionFileName( String fileName )
-	{
-		this.langDescriptionFileName = fileName;
-	}
 	
 	public String ToString()
 	{
-		String info = "";
-				
-		for (int i = 0; i < graph.size(); i++) {
-			info += graph.get(i).ToString();
-		}
+		String info = this.graph.ToString();
 				
 		return info;
 	}
 	
 	public String Display()
 	{
-		String info = "GRAPH GENERATED FROM: " + langDescriptionFileName + "\n";
-
-		info += this.ToString();
+		String info = this.ToString();
 				
 		System.out.println(info);
 		
