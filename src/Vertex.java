@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import sun.awt.DisplayChangedListener;
-
 
 public class Vertex {
 	

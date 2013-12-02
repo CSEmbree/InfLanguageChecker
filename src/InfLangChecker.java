@@ -1,12 +1,7 @@
-import java.awt.geom.Path2D;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.media.j3d.Node;
-
-import sun.nio.cs.ext.TIS_620;
 
 
 public class InfLangChecker {
