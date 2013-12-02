@@ -60,6 +60,11 @@ public class Vertex {
 		return this.endFlag;
 	}
 	
+	public ArrayList<Edge> GetEdges()
+	{
+		return this.edges;
+	}
+	
 	public String ToString()
 	{
 		String info = "";

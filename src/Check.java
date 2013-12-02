@@ -22,7 +22,7 @@ public class Check {
 
 		
 		System.out.println("Determining the scope of HW3Q4 (i) from file: "+fileName1);
-		isFinite = ilc.IsFinite();
+		isFinite = ilc.IsInfinite();
 		
 		System.out.println("RESULT: "+FormatResult(isFinite));
 		

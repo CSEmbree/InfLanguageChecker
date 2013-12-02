@@ -134,10 +134,44 @@ public class DirectedGraph {
 		AddVertexToGraph(vertex);
 	}
 	
-	
 	private void AddVertexToGraph(Vertex v)
 	{
 		this.graph.add(v);
+	}
+	
+	public boolean CheckWordAgainstGraph(String word)
+	{
+		boolean valid = false;
+		int stateIndex = 0; //init state is always state 0 by construction
+		
+		ArrayList<Edge> currentVertexEdges = null;
+		String currentWordLetter;
+		
+		
+		//TODO - check if this 'word' gets to an end state in our Directed Graph (FA)
+		
+		for (int wordIndex = 0; wordIndex < word.length(); wordIndex++) {
+			
+			currentWordLetter = Character.toString(word.charAt(wordIndex));
+			currentVertexEdges = this.graph.get(stateIndex).GetEdges();
+			
+			for (int edgeIndex = 0; edgeIndex < currentVertexEdges.size(); edgeIndex++) {
+				
+				if(currentVertexEdges.get(edgeIndex).GetCost().equals(currentWordLetter)) {
+					//TODO - force choose a new edge if the current one didnt work in the end by keeping state the same
+					
+					stateIndex = Integer.parseInt(currentVertexEdges.get(edgeIndex).GetDest());
+					break;
+				}
+			}
+		}
+		
+		
+		if( this.graph.get(stateIndex).GetEndFlag() == true)
+			valid = true;
+		
+		
+		return valid;
 	}
 	
 	

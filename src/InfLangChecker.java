@@ -19,20 +19,31 @@ public class InfLangChecker {
 	}
 	
 	
-	public boolean IsFinite()
+	public boolean IsInfinite()
 	{
-		boolean isFinite = true;
+		boolean IsInfinite = true;
 		
-		ArrayList<String> possibleWordStrings = GeneratePossibleWords();
+		ArrayList<String> possibleWords = GeneratePossibleWords();
 		
 		//TODO - determine finite or infinite
-		//CheckWordToGraph( someWord );
-		
+		/* 
+		 * 
+		 * for(int i = 0; i < possibleWords.size() && IsInfinite == false; i++) {
+		 * 	IsInfinite = CheckWordToGraph( possibleWords.getIndex(i) );
+		 * 	
+		 * }
+		 * 
+		 * return isFinite;
+
+		*/
 		String testWord = "ab"; //word for testing specific strings for a graph
 		
-		CheckWord( testWord );
 		
-		return isFinite;
+		IsInfinite = CheckWordAgainstGraph( testWord );
+		System.out.println("IsInfite: "+IsInfinite);
+		
+		
+		return IsInfinite;
 	}
 	
 	private ArrayList<String> GeneratePossibleWords()
@@ -51,13 +62,9 @@ public class InfLangChecker {
 		//TODO - recursivly create all words with length between lower and upper limit with the letters a,b 
 	}
 	
-	public boolean CheckWord(String word)
+	public boolean CheckWordAgainstGraph(String word)
 	{
-		boolean valid = false;
-		
-		//TODO - check if this 'word' gets to an end state in our Directed Graph (FA)
-		
-		return valid;
+		return this.graph.CheckWordAgainstGraph(word);
 	}
 	
 	
