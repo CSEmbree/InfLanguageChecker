@@ -12,6 +12,7 @@ public class Edge {
 		this("","","");
 	}
 	
+	
 	public Edge(String source, String dest, String cost)
 	{
 		SetSource(source);
@@ -25,30 +26,36 @@ public class Edge {
 		this.source = source;
 	}
 	
+	
 	private void SetDest(String dest) 
 	{
 		this.dest = dest;
 	}
+	
 	
 	private void SetCost(String cost)
 	{
 		this.cost = cost;
 	}
 	
+	
 	public String GetSource()
 	{
 		return this.source;
 	}
+	
 	
 	public String GetDest()
 	{
 		return this.dest;
 	}
 	
+	
 	public String GetCost()
 	{
 		return this.cost;
 	}
+	
 	
 	public String ToString()
 	{
@@ -56,6 +63,7 @@ public class Edge {
 		
 		return info;
 	}
+	
 	
 	public String Display()
 	{

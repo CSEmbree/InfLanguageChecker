@@ -14,6 +14,7 @@ public class Vertex {
 		this("", false, false, null);
 	}
 	
+	
 	public Vertex(String ID, boolean startFlag, boolean endFlag, ArrayList<Edge> Edges)
 	{
 		this.edges = new ArrayList<Edge>();
@@ -30,40 +31,63 @@ public class Vertex {
 		this.id = id;
 	}
 	
+	
 	private void SetStartFlag(boolean startFlag)
 	{
 		this.startFlag = startFlag;
 	}
+	
 	
 	private void SetEndFlag(boolean endFlag)
 	{
 		this.endFlag = endFlag;
 	}
 	
+	
 	private void SetEdges(ArrayList<Edge> edges)
 	{	
 		this.edges = new ArrayList<Edge>(edges);
 	}
+	
 	
 	public String GetID()
 	{
 		return this.id;
 	}
 	
+	
 	public boolean GetStartFlag()
 	{
 		return this.startFlag;
 	}
+	
 	
 	public boolean GetEndFlag()
 	{
 		return this.endFlag;
 	}
 	
+	
 	public ArrayList<Edge> GetEdges()
 	{
 		return this.edges;
 	}
+	
+	
+	//return edges that require specific costs
+	public ArrayList<Edge> GetEdges(String cost)
+	{
+		ArrayList<Edge> relevantEdges = new ArrayList<Edge>();
+		
+		for (Edge edge : this.edges) {
+			if(edge.GetCost().equals(cost)) {
+				relevantEdges.add(edge);
+			}
+		}
+		
+		return relevantEdges;
+	}
+	
 	
 	public String ToString()
 	{
@@ -77,6 +101,7 @@ public class Vertex {
 		
 		return info;
 	}
+	
 	
 	public String Display()
 	{
