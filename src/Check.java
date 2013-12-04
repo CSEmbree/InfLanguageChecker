@@ -1,18 +1,15 @@
-
+//Cameron S. Embree
 
 public class Check {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) 
 	{
-		String fileName1 = "hw3q4_i.txt"; //HW3Q4 (i)
+		String fileName1 = "hw3q4_i.txt";  //HW3Q4 (i)
 		String fileName2 = "hw3q4_ii.txt"; //HW3Q4 (ii)
 		String fileName3 = "hw3q4_ii.txt"; //HW3Q4 (iii)
 		String fileName4 = "hw3q4_iv.txt"; //HW3Q4 (iv)
 
-		boolean isInfinite = false;
+		boolean isInfinite = false; //result of the infinite language check
 
 
 		//TEST 1
@@ -24,7 +21,7 @@ public class Check {
 		System.out.println("Determining the scope of HW3Q4 (i) from file: "+fileName1);
 		isInfinite = ilc.IsInfinite();
 
-		System.out.println("RESULT: "+FormatResult(isInfinite)+" language.\n");
+		System.out.println("RESULT: "+FormatResult(isInfinite)+" language.\n\n");
 
 
 
@@ -37,7 +34,7 @@ public class Check {
 		System.out.println("Determining the scope of HW3Q4 (i) from file: "+fileName2);
 		isInfinite = ilc.IsInfinite();
 
-		System.out.println("RESULT: "+FormatResult(isInfinite)+" language.\n");
+		System.out.println("RESULT: "+FormatResult(isInfinite)+" language.\n\n");
 
 
 
@@ -50,7 +47,7 @@ public class Check {
 		System.out.println("Determining the scope of HW3Q4 (i) from file: "+fileName3);
 		isInfinite = ilc.IsInfinite();
 
-		System.out.println("RESULT: "+FormatResult(isInfinite)+" language.\n");
+		System.out.println("RESULT: "+FormatResult(isInfinite)+" language.\n\n");
 
 
 
@@ -64,10 +61,11 @@ public class Check {
 		System.out.println("Determining the scope of HW3Q4 (i) from file: "+fileName4);
 		isInfinite = ilc.IsInfinite();
 
-		System.out.println("RESULT: "+FormatResult(isInfinite)+" language.\n");
+		System.out.println("RESULT: "+FormatResult(isInfinite)+" language.\n\n");
 	}
 
 	
+	//convenience method - quickly format result of isInfinte check nicely
 	public static String FormatResult(boolean isInfinite)
 	{
 		String result = "";
