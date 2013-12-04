@@ -39,7 +39,7 @@ TM GRAPH DESCRIPTIONS:
 	    1-N-2b-1a
 	        State 1 is a NEUTRAL (not init or terminal) vertecy and has two edges. One edge from State 1 to 2 with a cost 'b' and from State 1 to 1 with cost 'a' (Goes back to itself).
 	    2-F-4a-4b-3a
-	        State 2 is a FINAL (Terminal) vertecy and has three edges. One edge from State 2 to 4 with a cost 'b', from State 1 to 4 with cost 'b', and from State 1 to 3 with a cost 'a' (notice this introduces two edges with the same cost - and therefore is non-deterministic).
+	        State 2 is a FINAL (Terminal) vertecy and has three edges. One edge from State 2 to 4 with a cost 'b', from State 2 to 4 with cost 'b', and from State 2 to 3 with a cost 'a' (notice this introduces two edges with the same cost - and therefore is non-deterministic).
 
 
 TEST RUNS:
