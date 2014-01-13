@@ -55,5 +55,5 @@ Examples TM description:
 
 # RUNNING
 
-Open project in Eclipse and run it. Main already contains description of the graph for the lagnuage from HW3Q4 (i), (ii), (iii) and (iv), followed by whether these languages are infinite or finite.
+Open project in Eclipse and run the `check.java` file containing the main which loads the description of the TM graphs for the lagnuage from HW3Q4 (i), (ii), (iii) and (iv) (located `<download_path>/InfLanguageChecker/tm_discriptions/`) and reports followed by whether these languages are infinite or finite.
 
