@@ -28,23 +28,23 @@ Description follow the format in text files:
 	<SOURCE_STATE>-<SOURCE_TYPE>-<DESTINATIONCOST>-...-<DESTINATIONCOST>
 ```	
 
-`SOURCE`: State that this vertex describes
+`<SOURCE>`: State that this vertex describes
 
-`SOURCE_TYPE`: The type of State, either `START` (where we begin parsing a word), `FINAL` (terminal state - where a word would be accepted if we ran out of input at this state), or `NEUTRAL` (a transitional state, a word would not be accepted if we stopped here). 
+`<SOURCE_TYPE>`: The type of State, either `START` (where we begin parsing a word), `FINAL` (terminal state - where a word would be accepted if we ran out of input at this state), or `NEUTRAL` (a transitional state, a word would not be accepted if we stopped here). 
 
-`DESTIANTIONCOST`: numerical number of the state this nodes is connected to and the alphabetical cost associated with traversing this edge to reach that destination state.
+`<DESTIANTIONCOST>`: numerical number of the state this nodes is connected to and the alphabetical cost associated with traversing this edge to reach that destination state.
 
 	    
 Examples TM description:
 ```
-	`0-S-2b-1a`
+	0-S-2b-1a
 	    State 0 is a START vertecy and has two edges. 
 	    One edge from State 0 to 2 with a cost 'b' and from State 0 to 1 with cost 'a'.
-	`1-N-2b-1a`
+	1-N-2b-1a
 	    State 1 is a NEUTRAL (not init or terminal) vertecy and has two edges. 
 	    One edge from State 1 to 2 with cost 'b'.
 	    One edge from State 1 to 1 with cost 'a' (Goes back to itself).
-	`2-F-4a-4b-3a`
+	2-F-4a-4b-3a
 	    State 2 is a FINAL (Terminal) vertecy and has three edges. 
 	    One edge from State 2 to 4 with cost 'b'.
 	    One edge from State 2 to 4 with cost 'b'.
@@ -55,5 +55,5 @@ Examples TM description:
 
 # RUNNING
 
-Open project in Eclipse and run the `check.java` file containing the main which loads the description of the TM graphs for the lagnuage from HW3Q4 (i), (ii), (iii) and (iv) (located `<download_path>/InfLanguageChecker/tm_discriptions/`) and reports followed by whether these languages are infinite or finite.
+Open project in Eclipse and run the `check.java` file containing the main which loads the description of the TM graphs for the lagnuage from HW3Q4 (i), (ii), (iii) and (iv) and reports whether these languages are infinite or finite.
 
