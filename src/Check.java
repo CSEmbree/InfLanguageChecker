@@ -4,10 +4,12 @@ public class Check {
 
 	public static void main(String[] args) 
 	{
-		String fileName1 = "hw3q4_i.txt";  //HW3Q4 (i)
-		String fileName2 = "hw3q4_ii.txt"; //HW3Q4 (ii)
-		String fileName3 = "hw3q4_ii.txt"; //HW3Q4 (iii)
-		String fileName4 = "hw3q4_iv.txt"; //HW3Q4 (iv)
+		final String tm_desc_path = "tm_descriptions/"; 
+		
+		String fileName1 = tm_desc_path+"hw3q4_i.txt";  //HW3Q4 (i)
+		String fileName2 = tm_desc_path+"hw3q4_ii.txt"; //HW3Q4 (ii)
+		String fileName3 = tm_desc_path+"hw3q4_ii.txt"; //HW3Q4 (iii)
+		String fileName4 = tm_desc_path+"hw3q4_iv.txt"; //HW3Q4 (iv)
 
 		boolean isInfinite = false; //result of the infinite language check
 
