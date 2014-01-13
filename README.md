@@ -35,7 +35,7 @@ Description follow the format in text files:
 `DESTIANTIONCOST`: numerical number of the state this nodes is connected to and the alphabetical cost associated with traversing this edge to reach that destination state.
 
 	    
-Some examples of TM descriptions:
+Examples TM description:
 ```
 	`0-S-2b-1a`
 	    State 0 is a START vertecy and has two edges. 
@@ -54,5 +54,6 @@ Some examples of TM descriptions:
 
 
 # RUNNING
-	Open project in Eclipse and run it. Main already contains description of the graph for the lagnuage from HW3Q4 (i), (ii), (iii) and (iv), followed by weather these languages are infinite or finite.
+
+Open project in Eclipse and run it. Main already contains description of the graph for the lagnuage from HW3Q4 (i), (ii), (iii) and (iv), followed by whether these languages are infinite or finite.
 
